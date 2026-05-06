@@ -1,0 +1,94 @@
+{
+  "case_id": "24-1-00253-04",
+  "incident_date": "2024-07-04",
+  "incident_timezone": "America/Los_Angeles",
+  "known_anchors": [
+    {
+      "anchor_id": "A001",
+      "description": "Initial 911 call initiated",
+      "approx_time": "11:30",
+      "approx_time_utc": "18:30",
+      "confidence": "medium",
+      "source": "Plaintiff recollection",
+      "notes": "45-minute call. Exact start time needs verification from call records."
+    },
+    {
+      "anchor_id": "A002",
+      "description": "Non-emergency callback from Chelan County",
+      "approx_time": "13:30",
+      "approx_time_utc": "20:30",
+      "confidence": "medium",
+      "source": "Phone call log (inbound call visible)",
+      "notes": "26-minute call. Confirmed 'rescue' arranged. Verify exact timestamp from phone carrier records."
+    },
+    {
+      "anchor_id": "A003",
+      "description": "Dispatcher callback (if separate from A002)",
+      "approx_time": "13:45",
+      "approx_time_utc": "20:45",
+      "confidence": "low",
+      "source": "Plaintiff recollection",
+      "notes": "Needs verification — may be same as A002 with recalled time error."
+    },
+    {
+      "anchor_id": "A004",
+      "description": "Johnson 'rescue' arrival at Colockum Wilderness Park",
+      "approx_time": "14:00",
+      "approx_time_utc": "21:00",
+      "confidence": "low",
+      "source": "Sequence inference",
+      "notes": "After 13:30 callback. Need video metadata or CAD log to pin exact time."
+    },
+    {
+      "anchor_id": "A005",
+      "description": "Arrest / transport to jail",
+      "approx_time": "17:00",
+      "approx_time_utc": "00:00+1",
+      "confidence": "low",
+      "source": "Plaintiff recollection",
+      "notes": "After hours of provocation, swatting, and isolation."
+    },
+    {
+      "anchor_id": "A006",
+      "description": "Booking into jail",
+      "approx_time": "18:00",
+      "approx_time_utc": "01:00+1",
+      "confidence": "low",
+      "source": "Plaintiff recollection",
+      "notes": "~6 hours after 911 call. No medical assessment or aid provided."
+    }
+  ],
+  "key_gaps": [
+    {
+      "gap_id": "G001",
+      "description": "Exact 911 call start time",
+      "resolution_method": "Phone carrier call detail records (subpoena/FOIA)",
+      "priority": "critical"
+    },
+    {
+      "gap_id": "G002",
+      "description": "Exact time of Johnson arrival at Colockum",
+      "resolution_method": "Video metadata or CAD log timestamp",
+      "priority": "critical"
+    },
+    {
+      "gap_id": "G003",
+      "description": "Exact time of truck theft by Huntington",
+      "resolution_method": "Video metadata or witness statement",
+      "priority": "high"
+    },
+    {
+      "gap_id": "G004",
+      "description": "Exact time of Jana assault",
+      "resolution_method": "Video metadata (unedited master if recoverable)",
+      "priority": "critical"
+    },
+    {
+      "gap_id": "G005",
+      "description": "Exact time of arrest",
+      "resolution_method": "Jail booking records or arrest report",
+      "priority": "high"
+    }
+  ],
+  "witness_list": []
+}

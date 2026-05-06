@@ -1,0 +1,45 @@
+# OpenClaw Legal Dream Team — gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Editors
+.vscode/
+.idea/
+*.sublime-*
+*.tmproj
+
+# OSINT artifacts — raw cached pages are in repo (committed)
+# but the chain-of-custody log is append-only and tracked
+
+# Large media evidence — not in this repository
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.mp3
+*.m4a
+*.zip
+*.tar.gz
+*.tgz
+
+# Temporary run artifacts
+tmp/
+temp/
+*.tmp

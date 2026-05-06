@@ -1,0 +1,184 @@
+{
+  "defendant_roster": [
+    {
+      "name": "Jeremiah Johnson",
+      "aliases": [],
+      "title": "Acting Operations Manager",
+      "agency": "Rivercom 911",
+      "capacity": "individual and official",
+      "role_in_incident": "Responded to 911 call in personal vehicle; drove plaintiff to remote location; orchestrated tow theft; present armed during provocation; co-authored false narrative with law enforcement",
+      "claims_applicable": [
+        "42 U.S.C. § 1983 — false imprisonment",
+        "42 U.S.C. § 1983 — malicious prosecution",
+        "42 U.S.C. § 1983 — due process (fabricated evidence)",
+        "42 U.S.C. § 1985 — conspiracy to interfere with civil rights",
+        "State: false imprisonment",
+        "State: theft by deception",
+        "State: extortion",
+        "State: negligent infliction of emotional distress"
+      ],
+      "osint_status": "not_started",
+      "osint_priority": "critical",
+      "notes": "20-year Rivercom career. Terminated months after incident. Misrepresented as 'volunteer tow driver' in police reports. Unclear if EMT-certified."
+    },
+    {
+      "name": "Jana Johnson",
+      "aliases": [],
+      "title": "Unknown",
+      "agency": "Rivercom 911 (suspected dispatcher)",
+      "capacity": "individual",
+      "role_in_incident": "Accompanied Jeremiah Johnson; assaulted plaintiff from behind with object; captured on video (footage deleted). Suspected to have been the 911 operator who handled initial call",
+      "claims_applicable": [
+        "42 U.S.C. § 1983 — excessive force / assault (if state actor)",
+        "State: assault and battery"
+      ],
+      "osint_status": "not_started",
+      "osint_priority": "high",
+      "notes": "Confirm or deny employment at Rivercom 911. Verify if she was the 911 operator on plaintiff's initial call."
+    },
+    {
+      "name": "Brandon Huntington",
+      "aliases": [],
+      "title": "Owner",
+      "agency": "B&T Towing (dissolved at time of incident)",
+      "capacity": "individual",
+      "role_in_incident": "Called by Jeremiah Johnson; stole/drove plaintiff's truck without consent; demanded ransom; refused card payment; refused phone access",
+      "claims_applicable": [
+        "42 U.S.C. § 1983 — conspiracy (if acting in concert with state actor)",
+        "State: theft of motor vehicle (RCW 9A.56.065)",
+        "State: extortion (RCW 9A.56.130)",
+        "State: conversion",
+        "State: trespass to chattels"
+      ],
+      "osint_status": "not_started",
+      "osint_priority": "high",
+      "notes": "B&T Towing was dissolved with WA Secretary of State before incident — no legal capacity to perform towing services. Personal friend of Jeremiah Johnson."
+    },
+    {
+      "name": "Jason Wargin",
+      "aliases": [],
+      "title": "Unknown",
+      "agency": "Unknown",
+      "capacity": "unknown",
+      "role_in_incident": "Unknown — listed as subject in case context",
+      "claims_applicable": [],
+      "osint_status": "not_started",
+      "osint_priority": "medium",
+      "notes": "Research needed to determine role and relevance"
+    },
+    {
+      "name": "Dan Ozment",
+      "aliases": [],
+      "title": "Unknown",
+      "agency": "Unknown",
+      "capacity": "unknown",
+      "role_in_incident": "Unknown — listed as subject in case context",
+      "claims_applicable": [],
+      "osint_status": "not_started",
+      "osint_priority": "medium",
+      "notes": "Research needed to determine role and relevance"
+    },
+    {
+      "name": "Sean Esworthy",
+      "aliases": [],
+      "title": "Unknown",
+      "agency": "Unknown",
+      "capacity": "unknown",
+      "role_in_incident": "Unknown — listed as subject in case context",
+      "claims_applicable": [],
+      "osint_status": "not_started",
+      "osint_priority": "medium",
+      "notes": "Research needed to determine role and relevance"
+    },
+    {
+      "name": "Brian Chase",
+      "aliases": [],
+      "title": "Unknown",
+      "agency": "Unknown",
+      "capacity": "unknown",
+      "role_in_incident": "Unknown — listed as subject in case context",
+      "claims_applicable": [],
+      "osint_status": "not_started",
+      "osint_priority": "medium",
+      "notes": "Research needed to determine role and relevance"
+    },
+    {
+      "name": "Charissa Williams",
+      "aliases": [],
+      "title": "Unknown",
+      "agency": "Unknown",
+      "capacity": "unknown",
+      "role_in_incident": "Unknown — listed as subject in case context",
+      "claims_applicable": [],
+      "osint_status": "not_started",
+      "osint_priority": "medium",
+      "notes": "Research needed to determine role and relevance"
+    },
+    {
+      "name": "Judge Robert E. Jordan",
+      "aliases": [],
+      "title": "Judge",
+      "agency": "Chelan County Superior Court",
+      "capacity": "unknown",
+      "role_in_incident": "Presiding judge over criminal case 24-1-00253-04",
+      "claims_applicable": [],
+      "osint_status": "not_started",
+      "osint_priority": "monitor",
+      "notes": "Judicial immunity likely applies — monitor for recusal or structural bias issues. Caperton analysis needed if bias can be established."
+    },
+    {
+      "name": "Chelan County Sheriff's Office",
+      "aliases": [],
+      "title": "Agency",
+      "agency": "Chelan County",
+      "capacity": "municipal entity (Monell)",
+      "role_in_incident": "Law enforcement response; accepted Johnson's false narrative; participated in arrest",
+      "claims_applicable": [
+        "42 U.S.C. § 1983 — Monell municipal liability",
+        "Supervisory liability — failure to train / failure to supervise",
+        "State: respondeat superior (if applicable)"
+      ],
+      "osint_status": "not_started",
+      "osint_priority": "high",
+      "notes": "Identify specific deputies involved. Determine policy or custom that enabled this outcome."
+    },
+    {
+      "name": "Chelan County Prosecutor's Office",
+      "aliases": [],
+      "title": "Agency",
+      "agency": "Chelan County",
+      "capacity": "municipal entity (prosecutorial function)",
+      "role_in_incident": "Filed 3 felony counts despite exculpatory evidence",
+      "claims_applicable": [
+        "42 U.S.C. § 1983 — malicious prosecution",
+        "Brady violation (suppression of exculpatory video evidence)"
+      ],
+      "osint_status": "not_started",
+      "osint_priority": "high",
+      "notes": "Prosecutorial immunity applies for advocacy functions. Focus on investigative/administrative functions and Brady obligations."
+    },
+    {
+      "name": "Rivercom 911",
+      "aliases": [],
+      "title": "Agency",
+      "agency": "Rivercom 911 / Chelan County Dispatch",
+      "capacity": "municipal entity (Monell)",
+      "role_in_incident": "Employed Johnson; dispatched Johnson to respond personally; responsible for call handling and dispatch records",
+      "claims_applicable": [
+        "42 U.S.C. § 1983 — Monell municipal liability",
+        "Supervisory liability — failure to supervise Johnson",
+        "Obstruction — loss of 911 audio and alteration of CAD logs"
+      ],
+      "osint_status": "not_started",
+      "osint_priority": "high",
+      "notes": "Confirm oversight structure. Is Rivercom a county agency? Interlocal agreement? Private nonprofit?"
+    }
+  ],
+  "plaintiff_info": {
+    "name": "Ryan Hell",
+    "pro_se": true,
+    "residence_county": "King County (formerly Chelan/Kittitas)",
+    "filing_preference": "EDWA — Spokane Division",
+    "related_criminal_case": "Chelan County Superior Court 24-1-00253-04"
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "manifest_version": "1.0",
+  "manifest_id": "c8f2a7b1-4e3d-5f6c-7a8b-9c0d1e2f3a4b",
+  "generated_at": "2026-05-06T16:00:00Z",
+  "generator": {
+    "tool": "legal-dream-team",
+    "version": "1.0.0",
+    "config": "case-config.json"
+  },
+  "case": {
+    "internal_id": "24-1-00253-04",
+    "user_provided_id": "Chelan County Superior Court 24-1-00253-04",
+    "jurisdiction": {
+      "level": "county",
+      "code": "WA-CHELAN",
+      "name": "Chelan County, Washington",
+      "court": "Chelan County Superior Court",
+      "case_number": "24-1-00253-04"
+    },
+    "matter_type": "civil",
+    "subtypes": [
+      "civil-rights-1983",
+      "malicious-prosecution",
+      "brady-violation",
+      "false-imprisonment",
+      "extortion",
+      "theft"
+    ],
+    "status": "pre-filing",
+    "filed_date": null,
+    "captioned_parties": [
+      {
+        "role": "plaintiff",
+        "name": "Ryan Hell",
+        "type": "individual",
+        "pro_se": true
+      },
+      {
+        "role": "defendant",
+        "name": "Jeremiah Johnson",
+        "type": "individual",
+        "capacity": "individual and official",
+        "title": "Acting Operations Manager",
+        "agency": "Rivercom 911",
+        "verified": false
+      },
+      {
+        "role": "defendant",
+        "name": "Jana Johnson",
+        "type": "individual",
+        "capacity": "individual",
+        "title": null,
+        "agency": null,
+        "verified": false
+      },
+      {
+        "role": "defendant",
+        "name": "Brandon Huntington",
+        "type": "individual",
+        "capacity": "individual",
+        "title": "Owner",
+        "agency": "B&T Towing (dissolved)",
+        "verified": false
+      }
+    ],
+    "related_cases": [
+      {
+        "case_number": "24-1-00253-04",
+        "court": "Chelan County Superior Court",
+        "type": "criminal",
+        "relationship": "charges arising from same incident — basis for malicious prosecution claim"
+      }
+    ]
+  },
+  "federal_venue": {
+    "court": "United States District Court for the Eastern District of Washington",
+    "division": "Spokane",
+    "basis": [
+      "28 U.S.C. § 1331 (federal question)",
+      "28 U.S.C. § 1343 (civil rights)",
+      "28 U.S.C. § 1391(b) (venue — incident occurred in EDWA)"
+    ]
+  },
+  "timeline": {
+    "incident_date": "2024-07-04",
+    "incident_timezone": "America/Los_Angeles",
+    "arrest": "2024-07-04T18:00:00-07:00",
+    "booking": "2024-07-04T18:00:00-07:00"
+  },
+  "statutes_implicated": [
+    "42 U.S.C. § 1983",
+    "28 U.S.C. § 2241",
+    "42 U.S.C. § 1985 (conspiracy)",
+    "18 U.S.C. § 1519 (obstruction — destruction of records)",
+    "RCW 9A.46.020 (felony harassment — fabricated charges)",
+    "RCW 9A.56.080 (theft)",
+    "RCW 9A.56.130 (extortion)"
+  ],
+  "known_evidence": {
+    "dashcam_video": {
+      "exists": true,
+      "status": "in_possession",
+      "notes": "Contains threats against plaintiff, Johnson hand on gun"
+    },
+    "jana_assault_video": {
+      "exists": true,
+      "status": "altered",
+      "notes": "Jana assault originally captured on video — footage deleted/edited"
+    },
+    "swatting_video": {
+      "exists": true,
+      "status": "in_possession"
+    },
+    "johnson_debrief_video": {
+      "exists": true,
+      "status": "in_possession",
+      "notes": "Johnson tells sheriff sergeant the 'refreshments' cover story"
+    },
+    "cad_logs": {
+      "exists": true,
+      "status": "heavily_altered",
+      "notes": "State acknowledges CAD transcripts exist — claimed altered/altered per plaintiff"
+    },
+    "dispatch_audio_911": {
+      "exists": true,
+      "status": "intentionally_lost",
+      "notes": "45-minute initial 911 call audio — State claims lost"
+    },
+    "phone_call_log": {
+      "exists": true,
+      "status": "in_possession",
+      "notes": "Shows inbound call from Chelan County Non-Emergency ~13:30"
+    },
+    "nibrs_data": {
+      "exists": true,
+      "status": "location_unknown",
+      "notes": "NIBRS report known to exist — location to be determined"
+    }
+  },
+  "subjects": [
+    {
+      "name": "Jeremiah Johnson",
+      "role": "key_defendant",
+      "osint_priority": "critical",
+      "known_aliases": [],
+      "known_employers": ["Rivercom 911"],
+      "known_roles": ["Acting Operations Manager"]
+    },
+    {
+      "name": "Jana Johnson",
+      "role": "defendant",
+      "osint_priority": "high",
+      "known_aliases": [],
+      "known_employers": ["Rivercom 911 (suspected)"]
+    },
+    {
+      "name": "Brandon Huntington",
+      "role": "defendant",
+      "osint_priority": "high",
+      "known_aliases": [],
+      "known_employers": ["B&T Towing"],
+      "known_roles": ["Owner"]
+    }
+  ],
+  "agents": {
+    "osint": {
+      "skill_path": "skills/openclaw-legal-investigator/SKILL.md",
+      "input_dir": "research/subjects/",
+      "output_dir": "research/"
+    },
+    "timeline": {
+      "skill_path": "skills/openclaw-legal-timeline-reconstruction/SKILL.md",
+      "input_dir": "research/",
+      "output_dir": "timeline/"
+    },
+    "statute": {
+      "skill_path": "skills/openclaw-legal-statute-researcher/SKILL.md",
+      "output_dir": "statutes/"
+    },
+    "document_architect": {
+      "skill_path": "skills/openclaw-legal-document-architect/SKILL.md",
+      "input_dir": ["research/subjects/", "statutes/", "timeline/", "forensics/"],
+      "output_dir": "filings/"
+    }
+  }
+}
