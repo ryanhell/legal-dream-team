@@ -4,7 +4,14 @@
 
 This repository contains everything you need to investigate your case, organize evidence, research the law, and format court-ready filings — all with chain-of-custody proof that your evidence hasn't been tampered with.
 
-> ⚠️ **DISCLAIMER: I AM NOT A LAWYER.** This is a document organization and evidence management toolkit. Nothing in this repository constitutes legal advice, legal representation, or a substitute for the advice of a licensed attorney. The author is a pro se litigant, not an attorney. Use at your own risk.
+> ⚠️ **LEGAL DISCLAIMER : I AM NOT A LAWYER.**
+> 
+The developers, contributors, and maintainers of this repository are not attorneys and are not licensed to practice law in any jurisdiction. Nothing in this repository — including but not limited to code, documentation, agent outputs, skill files, or any generated content — constitutes legal advice, legal counsel, or an attorney-client relationship. No such advice should be inferred from any human-authored or machine-generated content herein.
+This tooling is designed solely to assist lawful research, open-source investigation, and document organization for individuals acting within the bounds of applicable federal, state, and local law. Intended users include pro se defendants, pro se plaintiffs, and indigent individuals seeking equitable access to investigative and organizational tooling comparable to that available to represented parties.
+This tool is for lawful use only. Users are solely responsible for ensuring their use complies with all applicable laws, including but not limited to laws governing private investigation licensing, electronic surveillance, stalking, harassment, and data privacy in their jurisdiction. Misuse of this tooling for harassment, unlawful surveillance, or any purpose beyond its stated intent is expressly prohibited and is the sole legal responsibility of the user.
+If you are facing legal proceedings, consult a licensed attorney. If cost is a barrier, contact your local bar association's lawyer referral service, a legal aid organization, or a law school clinic in your area.
+If this repository conflicts with your local laws or applicable court rules, you are advised to discontinue use and delete it. For takedown requests, serious legal concerns, or required modifications, contact the repository maintainer directly via GitHub: @ryanhell.
+This disclaimer does not create any warranty, express or implied, regarding the accuracy, completeness, or fitness for purpose of any content in this repository.
 >
 > 🚀 **New here? Start with [`USER_GUIDE.md`](USER_GUIDE.md)** for a complete walkthrough from zero to filing.
 > 🛠️ **Already setup?** Jump to [Quick Start](#quick-start) below.
