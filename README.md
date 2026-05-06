@@ -200,7 +200,8 @@ Case reference: Chelan County Superior Court 24-1-00253-04.
 
 ## Links
 
-- **Repo:** `github.com/ryanhell/legal-dream-team`
+- **Repo:** `github.com/ryanhell/legal-dream-team` — clone, fork, share freely
+- **License:** MIT — use it, modify it, build on it
 - **OpenClaw:** `docs.openclaw.ai` | `github.com/openclaw/openclaw`
 - **EDWA Local Rules:** `waed.uscourts.gov`
 - **WA Public Records Act:** `RCW 42.56`
