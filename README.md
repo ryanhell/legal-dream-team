@@ -1,11 +1,31 @@
 # OpenClaw Legal Dream Team
 
-**Five-agent pipeline for pro se civil rights litigation.**
-OSINT investigation, evidence forensics, timeline reconstruction, statute research, and document formatting — all chained together with court-admissible chain-of-custody.
+**Open-source toolkit for pro se litigants filing civil rights lawsuits in federal court.**
 
-Designed for federal district court (EDWA — Eastern District of Washington, Spokane Division). Built for self-represented litigants.
+This repository contains everything you need to investigate your case, organize evidence, research the law, and format court-ready filings — all with chain-of-custody proof that your evidence hasn't been tampered with.
 
-**`github.com/ryanhell/legal-dream-team`**
+> 🚀 **New here? Start with [`USER_GUIDE.md`](USER_GUIDE.md)** for a complete walkthrough from zero to filing.
+> 🛠️ **Already setup?** Jump to [Quick Start](#quick-start) below.
+>
+> **If you don't know what "skills" or "agents" are — don't worry.** The guide explains everything in plain language.
+
+### What this does (plain English)
+
+- **Finds public records** about people involved in your case — their jobs, licenses, certifications, disciplinary history, court cases
+- **Detects tampered documents** by comparing old and new versions of public web pages (using Common Crawl and the Wayback Machine)
+- **Builds a timeline** of everything that happened, flags gaps and contradictions in the official story
+- **Organizes the law** — statutes, caselaw, element checklists for constitutional claims
+- **Formats your court filing** so it meets federal district court rules — captions, exhibits, service certificates, page limits, all ready to upload to CM/ECF
+- **Proves your evidence wasn't altered** — every file gets a SHA-256 hash logged in an append-only custody chain
+
+### Who this is for
+
+Pro se litigants in federal district court who:
+- Cannot afford an attorney
+- Have a civil rights case (42 U.S.C. § 1983)
+- Need to organize large volumes of evidence
+- Want court-admissible documentation of digital evidence integrity
+- Are filing in the Eastern District of Washington (Spokane) — though the pattern works for any district
 
 ---
 
