@@ -1,12 +1,3 @@
----
-name: openclaw-legal-document-architect
-description: >
-  OpenClaw Legal Dream Team — Document Architect sub-agent for federal court filings.
-  Formats structured data into CM/ECF-ready complaints, habeas petitions, motion documents,
-  exhibit indexes, and certificates of service for the Eastern District of Washington
-  (Spokane Division). Never drafts legal arguments.
----
-
 # SOUL.md — Agent 5: Document Architect
 # OpenClaw Legal Dream Team
 

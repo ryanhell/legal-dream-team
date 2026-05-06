@@ -46,7 +46,7 @@ python references/commoncrawl-warc-parser.py --url "chelanwa.gov/sheriff/staff/"
 | # | Agent | Skill File | What It Does |
 |---|-------|-----------|--------------|
 | 1 | **OSINT / Public Records Investigator** | `skills/openclaw-legal-investigator/SKILL.md` | Public records lookups, credential verification (EMT, POST, dispatcher), Common Crawl tamper detection, multi-jurisdictional bad actor profiling |
-| 2 | **Evidence Forensics** *(coming — bring your own FFmpeg)* | `forensics/` | Video frame analysis, audio metadata extraction, tamper detection, chain-of-custody manifests |
+| 2 | **Evidence Forensics Agent** | `skills/openclaw-legal-forensics-agent/SKILL.md` | Video/audio metadata extraction, encoding continuity analysis, AI manipulation detection, chain-of-custody manifests |
 | 3 | **Timeline Reconstruction** | `skills/openclaw-legal-timeline-reconstruction/SKILL.md` | Cross-source chronological reconstruction, gap analysis, conflict detection, shadow dispatch flagging |
 | 4 | **Statute & Caselaw Researcher** | `skills/openclaw-legal-statute-researcher/SKILL.md` | Statute text retrieval, element checklists, controlling 9th Circuit / Supreme Court precedent, qualified immunity status |
 | 5 | **Document Architect** | `skills/openclaw-legal-document-architect/SKILL.md` | EDWA CM/ECF-ready formatting, caption templates, exhibit system, certificate of service, pre-filing checklist |

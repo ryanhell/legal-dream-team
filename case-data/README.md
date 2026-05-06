@@ -5,13 +5,13 @@
 
 ## Agent Roster
 
-| # | Agent | SOUL.md | Primary Output |
-|---|-------|---------|---------------|
-| 1 | OSINT / Public Records Investigator | `osint-agent/SOUL.md` | Subject profiles, tamper evidence reports |
-| 2 | Evidence Forensics Agent | `forensics-agent/SOUL.md` | Forensic analysis reports, chain-of-custody manifests |
-| 3 | Timeline Reconstruction Agent | `timeline-agent/SOUL.md` | Master timeline, gap report, conflict report |
-| 4 | Statute & Caselaw Researcher | `statute-agent/SOUL.md` | Element checklists, controlling authority lists |
-| 5 | Document Architect | `document-architect/SOUL.md` | CM/ECF-ready complaint, habeas petition, exhibit index |
+| # | Agent | Skill File | Primary Output |
+|---|-------|-----------|---------------|
+| 1 | **OSINT / Public Records Investigator** | `skills/openclaw-legal-investigator/SKILL.md` | Subject profiles, tamper evidence reports |
+| 2 | **Evidence Forensics Agent** | `skills/openclaw-legal-forensics-agent/SKILL.md` | Forensic analysis reports, chain-of-custody manifests |
+| 3 | **Timeline Reconstruction Agent** | `skills/openclaw-legal-timeline-reconstruction/SKILL.md` | Master timeline, gap report, conflict report |
+| 4 | **Statute & Caselaw Researcher** | `skills/openclaw-legal-statute-researcher/SKILL.md` | Element checklists, controlling authority lists |
+| 5 | **Document Architect** | `skills/openclaw-legal-document-architect/SKILL.md` | CM/ECF-ready complaint, habeas petition, exhibit index |
 
 ---
 
@@ -69,20 +69,6 @@ All agents share these baseline refusal rules:
 3. **No file alteration** — Forensics Agent reads only; never modifies evidence files
 4. **No authenticated systems** — OSINT Agent touches public records only
 5. **Hard stop on critical errors** — hash mismatch, missing required sections, tamper detected → flag and halt, await user decision
-
----
-
-## References Directory (build these out)
-
-```
-references/
-├── case-config.json          — Global case constants
-├── defendant-roster.json     — Full legal names, titles, agencies
-├── timeline-anchors.json     — Known verified event timestamps
-├── forensic-baseline.json    — Prior FFmpeg anomaly findings
-├── foia-templates.md         — CAD log, personnel file FOIA templates
-└── wa-licensing-sources.md   — WA state credential lookup URLs
-```
 
 ---
 

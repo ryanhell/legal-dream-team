@@ -1,12 +1,3 @@
----
-name: openclaw-legal-timeline-reconstruction
-description: >
-  OpenClaw Legal Dream Team — Timeline Reconstruction Agent for chronological
-  reconstruction and gap analysis. Merges CAD logs, call records, video timestamps,
-  police reports, court filings, and employment histories into one authoritative
-  timeline. Detects gaps, conflicts, and shadow dispatch events.
----
-
 # SOUL.md — Agent 3: Timeline Reconstruction Agent
 # OpenClaw Legal Dream Team
 

@@ -5,29 +5,16 @@ OpenClaw Legal Dream Team — OSINT Agent
 Common Crawl WARC fetch, diff, SHA-256 tamper detection pipeline.
 
 Usage:
- python commoncrawl-warc-parser.py --url <TARGET_URL> [options]
-
-Examples:
- # Basic CC sweep, 10 crawls
- python commoncrawl-warc-parser.py --url "chelanwa.gov/sheriff/staff/" --verbose
-
- # CC + Wayback, check 20 crawls
- python commoncrawl-warc-parser.py --url "cjtc.wa.gov/officer-lookup/" --crawls 20 --wayback --verbose
-
- # Custom output path + custody log
- python commoncrawl-warc-parser.py --url "courts.wa.gov/case/24-1-00253-04" \
-   --out-dir /case-data/research/tamper-evidence \
-   --custody-log /case-data/research/chain-of-custody.log \
-   --wayback --verbose
+  python commoncrawl-warc-parser.py --url <TARGET_URL> [options]
 
 Options:
- --url Target URL to investigate (required)
- --out-dir Output directory (default: /case-data/research/tamper-evidence/)
- --crawls Number of most recent crawls to check (default: 10)
- --diff Run unified diff between all snapshot pairs (default: True)
- --custody-log Path to chain-of-custody log (default: /case-data/research/chain-of-custody.log)
- --wayback Also pull Wayback Machine snapshots in parallel
- --verbose Print progress to stdout
+  --url           Target URL to investigate (required)
+  --out-dir       Output directory (default: /case-data/research/tamper-evidence/)
+  --crawls        Number of most recent crawls to check (default: 10)
+  --diff          Run unified diff between all snapshot pairs (default: True)
+  --custody-log   Path to chain-of-custody log (default: /case-data/research/chain-of-custody.log)
+  --wayback       Also pull Wayback Machine snapshots in parallel
+  --verbose       Print progress to stdout
 """
 
 import argparse
@@ -45,19 +32,19 @@ from urllib.parse import quote_plus
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 
-CDX_COLLINFO = "https://index.commoncrawl.org/collinfo.json"
-CDX_API = "https://index.commoncrawl.org/{crawl}-index?url={url}&output=json"
-WARC_BASE = "https://data.commoncrawl.org/"
-WAYBACK_CDX = "https://web.archive.org/cdx/search/cdx?url={url}&output=json&fl=timestamp,statuscode,digest,filename"
-WAYBACK_FETCH = "https://web.archive.org/web/{timestamp}/{url}"
+CDX_COLLINFO   = "https://index.commoncrawl.org/collinfo.json"
+CDX_API        = "https://index.commoncrawl.org/{crawl}-index?url={url}&output=json"
+WARC_BASE      = "https://data.commoncrawl.org/"
+WAYBACK_CDX    = "https://web.archive.org/cdx/search/cdx?url={url}&output=json&fl=timestamp,statuscode,digest,filename"
+WAYBACK_FETCH  = "https://web.archive.org/web/{timestamp}/{url}"
 
-AGENT_ID = "OSINT-AGENT"
-BACKOFF = [2, 8, 30, 120]  # seconds per retry on 429
-MAX_RPS = 1.0  # max requests/sec to CDX
-MAX_WARC_CONC = 3  # max concurrent WARC fetches
+AGENT_ID       = "OSINT-AGENT"
+BACKOFF        = [2, 8, 30, 120]   # seconds per retry on 429
+MAX_RPS        = 1.0               # max requests/sec to CDX
+MAX_WARC_CONC  = 3                 # max concurrent WARC fetches
 
-DEFAULT_OUT = "/case-data/research/tamper-evidence"
-DEFAULT_LOG = "/case-data/research/chain-of-custody.log"
+DEFAULT_OUT    = "/case-data/research/tamper-evidence"
+DEFAULT_LOG    = "/case-data/research/chain-of-custody.log"
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -87,15 +74,15 @@ def get_with_backoff(url: str, stream: bool = False,
             r = requests.get(url, headers=headers or {}, stream=stream, timeout=30)
             if r.status_code == 429:
                 if i == len(BACKOFF) - 1:
-                    print(f" [RATE_LIMITED] 4 retries exhausted: {url}", file=sys.stderr)
+                    print(f"  [RATE_LIMITED] 4 retries exhausted: {url}", file=sys.stderr)
                     return None
                 if verbose:
-                    print(f" [429] Backing off {wait}s (attempt {i+1})...")
+                    print(f"  [429] Backing off {wait}s (attempt {i+1})...")
                 time.sleep(wait)
                 continue
             return r
         except requests.RequestException as e:
-            print(f" [ERROR] Request failed: {e}", file=sys.stderr)
+            print(f"  [ERROR] Request failed: {e}", file=sys.stderr)
             if i == len(BACKOFF) - 1:
                 return None
             time.sleep(wait)
@@ -119,7 +106,7 @@ def query_cdx(crawl_id: str, url: str, verbose: bool) -> list[dict]:
     api_url = CDX_API.format(crawl=crawl_id, url=quote_plus(url))
     time.sleep(1.0 / MAX_RPS)
     if verbose:
-        print(f" [CDX] {crawl_id} → querying...")
+        print(f"  [CDX] {crawl_id} → querying...")
     r = get_with_backoff(api_url, verbose=verbose)
     if not r or r.status_code == 404:
         return []
@@ -135,15 +122,15 @@ def query_cdx(crawl_id: str, url: str, verbose: bool) -> list[dict]:
 
 def fetch_warc_content(record: dict, verbose: bool) -> bytes | None:
     """Fetch raw HTML content from a WARC record using byte-range request."""
-    warc_path = record.get("filename", "")
-    offset = int(record.get("offset", 0))
-    length = int(record.get("length", 0))
+    warc_path   = record.get("filename", "")
+    offset      = int(record.get("offset", 0))
+    length      = int(record.get("length", 0))
     if not warc_path or not length:
         return None
-    warc_url = WARC_BASE + warc_path
-    byte_range = f"bytes={offset}-{offset + length - 1}"
+    warc_url    = WARC_BASE + warc_path
+    byte_range  = f"bytes={offset}-{offset + length - 1}"
     if verbose:
-        print(f" [WARC] Fetching {warc_url} range={byte_range}")
+        print(f"    [WARC] Fetching {warc_url} range={byte_range}")
     r = get_with_backoff(warc_url, headers={"Range": byte_range}, verbose=verbose)
     if not r or r.status_code not in (200, 206):
         return None
@@ -187,7 +174,7 @@ def fetch_wayback_snapshot(timestamp: str, url: str, verbose: bool) -> bytes | N
     """Fetch a Wayback snapshot's raw HTML."""
     fetch_url = WAYBACK_FETCH.format(timestamp=timestamp, url=url)
     if verbose:
-        print(f" [WB] Fetching {timestamp}...")
+        print(f"  [WB] Fetching {timestamp}...")
     r = get_with_backoff(fetch_url, verbose=verbose)
     if not r or r.status_code != 200:
         return None
@@ -229,7 +216,7 @@ def run_diff(snap_a: dict, snap_b: dict, out_dir: Path,
         return None  # identical — no change
 
     # Classify change types
-    added = sum(1 for l in diff_lines if l.startswith("+") and not l.startswith("+++"))
+    added   = sum(1 for l in diff_lines if l.startswith("+") and not l.startswith("+++"))
     removed = sum(1 for l in diff_lines if l.startswith("-") and not l.startswith("---"))
     change_type = []
     if removed and added:
@@ -289,7 +276,7 @@ def build_report(url: str, snapshots: list[dict],
         f"**Query Date:** {ts()}",
         f"**Snapshots Retrieved:** {len(snapshots)}",
         f"**Changes Detected:** {len(changes)}",
-        f"**Tamper Flag:** {'⚠️ YES' if changes else '✅ NO CHANGES DETECTED'}",
+        f"**Tamper Flag:** {'⚠️  YES' if changes else '✅ NO CHANGES DETECTED'}",
         "",
         "## Snapshots",
     ]
@@ -305,7 +292,7 @@ def build_report(url: str, snapshots: list[dict],
             f"- Lines added: {c['lines_added']} | Lines removed: {c['lines_removed']}",
             f"- Diff: `{c['diff_filename']}`",
             f"- SHA-256 before: `{c['sha256_before'][:32]}...`",
-            f"- SHA-256 after: `{c['sha256_after'][:32]}...`",
+            f"- SHA-256 after:  `{c['sha256_after'][:32]}...`",
             "",
         ]
     md_path = out_dir / "tamper-report.md"
@@ -319,31 +306,31 @@ def build_report(url: str, snapshots: list[dict],
 
 def main():
     parser = argparse.ArgumentParser(description="OpenClaw WARC Parser — Tamper Detection")
-    parser.add_argument("--url", required=True, help="Target URL to investigate")
-    parser.add_argument("--out-dir", default=DEFAULT_OUT)
-    parser.add_argument("--crawls", type=int, default=10, help="Number of CC crawls to check")
+    parser.add_argument("--url",         required=True,  help="Target URL to investigate")
+    parser.add_argument("--out-dir",     default=DEFAULT_OUT)
+    parser.add_argument("--crawls",      type=int, default=10, help="Number of CC crawls to check")
     parser.add_argument("--custody-log", default=DEFAULT_LOG)
-    parser.add_argument("--wayback", action="store_true", help="Also pull Wayback Machine")
-    parser.add_argument("--no-diff", action="store_true", help="Skip diff generation")
-    parser.add_argument("--verbose", action="store_true")
+    parser.add_argument("--wayback",     action="store_true", help="Also pull Wayback Machine")
+    parser.add_argument("--no-diff",     action="store_true", help="Skip diff generation")
+    parser.add_argument("--verbose",     action="store_true")
     args = parser.parse_args()
 
-    url = args.url
-    verbose = args.verbose
-    do_diff = not args.no_diff
+    url        = args.url
+    verbose    = args.verbose
+    do_diff    = not args.no_diff
 
     # Build output directory
-    url_slug = slug(url)
-    date_str = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d_%H%M%S")
-    out_dir = Path(args.out_dir) / f"{url_slug}__{date_str}"
+    url_slug   = slug(url)
+    date_str   = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d_%H%M%S")
+    out_dir    = Path(args.out_dir) / f"{url_slug}__{date_str}"
     out_dir.mkdir(parents=True, exist_ok=True)
     custody_log = args.custody_log
     os.makedirs(os.path.dirname(custody_log), exist_ok=True)
 
     print(f"\n{'='*60}")
-    print(f" OpenClaw WARC Parser")
-    print(f" Target : {url}")
-    print(f" Output : {out_dir}")
+    print(f"  OpenClaw WARC Parser")
+    print(f"  Target : {url}")
+    print(f"  Output : {out_dir}")
     print(f"{'='*60}\n")
 
     snapshots = []
@@ -355,34 +342,34 @@ def main():
     else:
         print(f"[+] Checking {len(crawl_ids)} Common Crawl indexes...")
 
-        for crawl_id in crawl_ids:
-            records = query_cdx(crawl_id, url, verbose)
-            if not records:
-                if verbose:
-                    print(f" [NO DATA] {crawl_id}")
-                continue
-            print(f" [FOUND] {crawl_id} — {len(records)} record(s)")
-            for rec in records[:1]:  # take first (most relevant) per crawl
-                content = fetch_warc_content(rec, verbose)
-                if content:
-                    snap = save_snapshot(
-                        content, out_dir,
-                        timestamp=rec.get("timestamp", crawl_id),
-                        source="CC",
-                        url=url,
-                        custody_log=custody_log
-                    )
-                    snapshots.append(snap)
-                    print(f" [SAVED] {snap['filename']} — SHA-256: {snap['sha256'][:16]}...")
-                else:
-                    print(f" [WARN] WARC fetch failed for {crawl_id}")
-            time.sleep(1.0 / MAX_RPS)
+    for crawl_id in crawl_ids:
+        records = query_cdx(crawl_id, url, verbose)
+        if not records:
+            if verbose:
+                print(f"  [NO DATA] {crawl_id}")
+            continue
+        print(f"  [FOUND] {crawl_id} — {len(records)} record(s)")
+        for rec in records[:1]:  # take first (most relevant) per crawl
+            content = fetch_warc_content(rec, verbose)
+            if content:
+                snap = save_snapshot(
+                    content, out_dir,
+                    timestamp=rec.get("timestamp", crawl_id),
+                    source="CC",
+                    url=url,
+                    custody_log=custody_log
+                )
+                snapshots.append(snap)
+                print(f"    [SAVED] {snap['filename']} — SHA-256: {snap['sha256'][:16]}...")
+            else:
+                print(f"    [WARN] WARC fetch failed for {crawl_id}")
+        time.sleep(1.0 / MAX_RPS)
 
     # ── Wayback Machine ────────────────────────────────────────────────────────
     if args.wayback:
         print(f"\n[+] Querying Wayback Machine...")
         wb_records = query_wayback(url, verbose)
-        print(f" [FOUND] {len(wb_records)} Wayback snapshot(s)")
+        print(f"  [FOUND] {len(wb_records)} Wayback snapshot(s)")
 
         # Sample evenly: take up to 5 snapshots spread across the archive
         if wb_records:
@@ -400,7 +387,7 @@ def main():
                         custody_log=custody_log
                     )
                     snapshots.append(snap)
-                    print(f" [SAVED] {snap['filename']} — SHA-256: {snap['sha256'][:16]}...")
+                    print(f"  [SAVED] {snap['filename']} — SHA-256: {snap['sha256'][:16]}...")
                 time.sleep(1)
 
     # ── Diff all snapshot pairs ────────────────────────────────────────────────
@@ -415,10 +402,10 @@ def main():
             diff = run_diff(a, b, out_dir, url, custody_log)
             if diff:
                 changes.append(diff)
-                print(f" [CHANGE] {a['timestamp']} → {b['timestamp']} — {diff['type']} "
+                print(f"  [CHANGE] {a['timestamp']} → {b['timestamp']} — {diff['type']} "
                       f"(+{diff['lines_added']} / -{diff['lines_removed']})")
             else:
-                print(f" [SAME] {a['timestamp']} → {b['timestamp']} — no change")
+                print(f"  [SAME]   {a['timestamp']} → {b['timestamp']} — no change")
     elif len(snapshots) < 2:
         print(f"\n[INFO] Only {len(snapshots)} snapshot(s) retrieved — diff requires 2+.")
 
@@ -426,18 +413,18 @@ def main():
     report = build_report(url, snapshots, changes, out_dir, custody_log)
 
     print(f"\n{'='*60}")
-    print(f" COMPLETE")
-    print(f" Snapshots : {len(snapshots)}")
-    print(f" Changes : {len(changes)}")
-    print(f" Tamper : {'⚠️ YES — REVIEW DIFFS' if changes else 'NO CHANGES DETECTED'}")
-    print(f" Output : {out_dir}")
-    print(f" Report : {out_dir}/tamper-report.json")
+    print(f"  COMPLETE")
+    print(f"  Snapshots : {len(snapshots)}")
+    print(f"  Changes   : {len(changes)}")
+    print(f"  Tamper    : {'⚠️  YES — REVIEW DIFFS' if changes else 'NO CHANGES DETECTED'}")
+    print(f"  Output    : {out_dir}")
+    print(f"  Report    : {out_dir}/tamper-report.json")
     print(f"{'='*60}\n")
 
     if not snapshots:
         print("[WARN] NO CRAWL DATA FOUND for this URL in checked sources.")
-        print(" Possible explanations: URL never crawled, blocked by robots.txt,")
-        print(" or dynamic content not captured. Flag: NO CRAWL DATA FOUND.")
+        print("       Possible explanations: URL never crawled, blocked by robots.txt,")
+        print("       or dynamic content not captured. Flag: NO CRAWL DATA FOUND.")
 
     return 0 if not changes else 1  # exit 1 if changes detected (useful for CI/scripting)
 

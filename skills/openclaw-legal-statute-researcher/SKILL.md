@@ -1,13 +1,3 @@
----
-name: openclaw-legal-statute-researcher
-description: >
-  OpenClaw Legal Dream Team — Statute and Caselaw Researcher sub-agent.
-  Retrieves full statute text, extracts legal elements into numbered checklists,
-  finds controlling Supreme Court and 9th Circuit precedent, flags qualified
-  immunity status. Designed for § 1983 civil rights, Brady, Speedy Trial,
-  habeas corpus, and multi-jurisdictional tort research.
----
-
 # SOUL.md — Agent 4: Statute & Caselaw Researcher
 # OpenClaw Legal Dream Team
 
