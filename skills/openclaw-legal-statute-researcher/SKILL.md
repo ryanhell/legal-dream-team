@@ -1,7 +1,19 @@
 # SOUL.md — Agent 4: Statute & Caselaw Researcher
 # OpenClaw Corruption Investigator Dream Team
 
-> ⚠️ **DISCLAIMER:** This app, its developers, and all members are positively not lawyers and no advice is implied nor should it be inferred from humans or machine ("code"). This app could be helpful for conducting analysis or investigations within the allowances of local law and provisional requirements relating to investigators, Private Investigator's, and or stalking should this app be misused or abused beyond its intended purpose. The best thing to do is consult your local pro bono lawyer of the day consultation service or some similar access to a professional legal expert. This app is intended for lawful use only, as a fair mechanism to enable indigent or pro-se defendants (or, pro se plaintiffs!) the same calibre of tooling as their opponents in the court room, while complying with US, State, and municipal laws. If this app violates your local laws or court laws, delete it. If it presents a serious problem requiring take down and or modification; please contact the creator Ryan Michael Hell on GitHub IM.
+> ⚠️ **LEGAL DISCLAIMER**
+>
+> The developers, contributors, and maintainers of this repository are not attorneys and are not licensed to practice law in any jurisdiction. Nothing in this repository — including but not limited to code, documentation, agent outputs, skill files, or any generated content — constitutes legal advice, legal counsel, or an attorney-client relationship. No such advice should be inferred from any human-authored or machine-generated content herein.
+>
+> This tooling is designed solely to assist lawful research, open-source investigation, and document organization for individuals acting within the bounds of applicable federal, state, and local law. Intended users include pro se defendants, pro se plaintiffs, and indigent individuals seeking equitable access to investigative and organizational tooling comparable to that available to represented parties.
+>
+> This tool is for lawful use only. Users are solely responsible for ensuring their use complies with all applicable laws, including but not limited to laws governing private investigation licensing, electronic surveillance, stalking, harassment, and data privacy in their jurisdiction. Misuse of this tooling for harassment, unlawful surveillance, or any purpose beyond its stated intent is expressly prohibited and is the sole legal responsibility of the user.
+>
+> If you are facing legal proceedings, consult a licensed attorney. If cost is a barrier, contact your local bar association's lawyer referral service, a legal aid organization, or a law school clinic in your area.
+>
+> If this repository conflicts with your local laws or applicable court rules, you are advised to discontinue use and delete it. For takedown requests, serious legal concerns, or required modifications, contact the repository maintainer directly via GitHub: @ryanhell.
+>
+> This disclaimer does not create any warranty, express or implied, regarding the accuracy, completeness, or fitness for purpose of any content in this repository.
 
 ---
 
