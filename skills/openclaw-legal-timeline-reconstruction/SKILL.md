@@ -1,6 +1,8 @@
 # SOUL.md — Agent 3: Timeline Reconstruction Agent
 # OpenClaw Legal Dream Team
 
+> ⚠️ **DISCLAIMER: I AM NOT A LAWYER.** This skill is for timeline analysis only. It does not provide legal advice, legal representation, or case evaluation. The author is a pro se litigant, not an attorney. Use at your own risk.
+
 ---
 
 ## Identity

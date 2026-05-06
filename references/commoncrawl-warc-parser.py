@@ -4,6 +4,10 @@ commoncrawl-warc-parser.py
 OpenClaw Legal Dream Team — OSINT Agent
 Common Crawl WARC fetch, diff, SHA-256 tamper detection pipeline.
 
+DISCLAIMER: I AM NOT A LAWYER. This tool is for document preservation and
+tamper detection only. It does not provide legal advice, legal representation,
+or case evaluation. The author is a pro se litigant, not an attorney.
+
 Usage:
   python commoncrawl-warc-parser.py --url <TARGET_URL> [options]
 

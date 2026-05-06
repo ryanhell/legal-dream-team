@@ -1,5 +1,7 @@
 # OpenClaw Legal Dream Team — User Guide
 
+> ⚠️ **DISCLAIMER: I AM NOT A LAWYER.** This is a document organization and evidence management toolkit. Nothing in this repository constitutes legal advice, legal representation, or a substitute for the advice of a licensed attorney. The author is a pro se litigant, not an attorney. Use at your own risk.
+
 A five-agent pipeline for pro se civil rights litigation: OSINT investigation, evidence forensics, timeline reconstruction, statute research, and document formatting. Designed for federal district court (EDWA), built for self-represented litigants.
 
 ---

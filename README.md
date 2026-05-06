@@ -4,6 +4,8 @@
 
 This repository contains everything you need to investigate your case, organize evidence, research the law, and format court-ready filings — all with chain-of-custody proof that your evidence hasn't been tampered with.
 
+> ⚠️ **DISCLAIMER: I AM NOT A LAWYER.** This is a document organization and evidence management toolkit. Nothing in this repository constitutes legal advice, legal representation, or a substitute for the advice of a licensed attorney. The author is a pro se litigant, not an attorney. Use at your own risk.
+>
 > 🚀 **New here? Start with [`USER_GUIDE.md`](USER_GUIDE.md)** for a complete walkthrough from zero to filing.
 > 🛠️ **Already setup?** Jump to [Quick Start](#quick-start) below.
 >
