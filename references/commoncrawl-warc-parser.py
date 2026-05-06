@@ -7,6 +7,19 @@ Common Crawl WARC fetch, diff, SHA-256 tamper detection pipeline.
 Usage:
  python commoncrawl-warc-parser.py --url <TARGET_URL> [options]
 
+Examples:
+ # Basic CC sweep, 10 crawls
+ python commoncrawl-warc-parser.py --url "chelanwa.gov/sheriff/staff/" --verbose
+
+ # CC + Wayback, check 20 crawls
+ python commoncrawl-warc-parser.py --url "cjtc.wa.gov/officer-lookup/" --crawls 20 --wayback --verbose
+
+ # Custom output path + custody log
+ python commoncrawl-warc-parser.py --url "courts.wa.gov/case/24-1-00253-04" \
+   --out-dir /case-data/research/tamper-evidence \
+   --custody-log /case-data/research/chain-of-custody.log \
+   --wayback --verbose
+
 Options:
  --url Target URL to investigate (required)
  --out-dir Output directory (default: /case-data/research/tamper-evidence/)
