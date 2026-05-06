@@ -1,4 +1,4 @@
-# OpenClaw Legal Dream Team
+# OpenClaw Corruption Investigator Dream Team
 ## Sub-Agent Architecture — Master Reference
 
 ---

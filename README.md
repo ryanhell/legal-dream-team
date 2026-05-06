@@ -1,4 +1,4 @@
-# OpenClaw Legal Dream Team
+# OpenClaw Corruption Investigator Dream Team
 
 **Open-source toolkit for pro se litigants filing civil rights lawsuits in federal court.**
 
