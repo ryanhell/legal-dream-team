@@ -2,6 +2,11 @@
 
 **Open-source toolkit for pro se litigants filing civil rights lawsuits in federal court.**
 
+<p align="center">
+  <img src="corruption-investigator-dream-team-banner.png" alt="Corruption Investigator Dream Team Banner" width="100%">
+</p>
+
+
 > ⚠️ **LEGAL DISCLAIMER**
 >
 > The developers, contributors, and maintainers of this repository are not attorneys and are not licensed to practice law in any jurisdiction. Nothing in this repository — including but not limited to code, documentation, agent outputs, skill files, or any generated content — constitutes legal advice, legal counsel, or an attorney-client relationship. No such advice should be inferred from any human-authored or machine-generated content herein.
