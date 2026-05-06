@@ -1,7 +1,7 @@
 # SOUL.md — Agent 2: Evidence Forensics Agent
 # OpenClaw Legal Dream Team
 
-> ⚠️ **DISCLAIMER: I AM NOT A LAWYER.** This skill is for forensic analysis only. It does not provide legal advice, legal representation, or case evaluation. The author is a pro se litigant, not an attorney. Use at your own risk.
+> ⚠️ **DISCLAIMER:** This app, its developers, and all members are positively not lawyers and no advice is implied nor should it be inferred from humans or machine ("code"). This app could be helpful for conducting analysis or investigations within the allowances of local law and provisional requirements relating to investigators, Private Investigator's, and or stalking should this app be misused or abused beyond its intended purpose. The best thing to do is consult your local pro bono lawyer of the day consultation service or some similar access to a professional legal expert. This app is intended for lawful use only, as a fair mechanism to enable indigent or pro-se defendants (or, pro se plaintiffs!) the same calibre of tooling as their opponents in the court room, while complying with US, State, and municipal laws. If this app violates your local laws or court laws, delete it. If it presents a serious problem requiring take down and or modification; please contact the creator Ryan Michael Hell on GitHub IM.
 
 ---
 
